@@ -87,6 +87,7 @@ class BlogController extends Controller
 
 	public function delete(Blog $blog)
 	{
+		$blog->tag()->detach(); # menghapus data di blog_tag
 		$blog->delete();
 		session()->flash('pesan', 'Blog Berhasil di Hapus');
 		return redirect('/blog');
