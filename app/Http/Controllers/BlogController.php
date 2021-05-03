@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Blog,Kategori};
+use App\Models\{Blog,Kategori, Tag};
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -34,6 +34,7 @@ class BlogController extends Controller
 		return view('blog.create',[
 			'blog'			=> new Blog(), 
 			'kategori'  => Kategori::get(),
+			'tag'				=> Tag::get()
 			]);
 	}
 

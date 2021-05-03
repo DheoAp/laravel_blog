@@ -5,6 +5,20 @@
 </div>
 
 <div class="form-group">
+  <label for="tag">Tag</label>
+  <select name="tag[]" id="tag" class="custom-select select2" multiple>
+    <option disabled>Pilih</option>
+    @foreach ($blog->tag as $item )
+        <option selected value="{{ $item->tag_id }}">{{ $item->nama }}</option>
+    @endforeach
+    @foreach ($tag as $item)
+      <option value="{{ $item->tag_id }}">{{ $item->nama }}</option>
+    @endforeach
+  </select>
+  @error('tag')<div class="invalid-feedback">{{$message }}</div>@enderror
+</div>
+
+<div class="form-group">
   <label for="kategori">Kategori Blog</label>
   <select name="kategori" class="custom-select @error('kategori') is-invalid @enderror">
     <option disabled selected>Pilih</option>
