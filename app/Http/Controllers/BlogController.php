@@ -65,6 +65,7 @@ class BlogController extends Controller
 		return view('blog.edit',[
 			'blog' => $blog, 
 			'kategori' => Kategori::get(),
+			'tag' =>  Tag::get()
 			]);
 	}
 	public function update(Request $request, Blog $blog)

@@ -8,7 +8,7 @@ class Tag extends Controller
 {
 	public function show(Tag $tag)
 	{
-		$blog = $tag->blog()->paginateg(6);
+		$blog = $tag->blog()->paginate(6);
 		return view('blog.index', compact('blog','tag'));
 	}
 }
