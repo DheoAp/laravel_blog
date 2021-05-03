@@ -45,7 +45,10 @@ class BlogController extends Controller
 		$data['slug'] = Str::slug($request->judul);
 		$data['kategori_id'] = request('kategori');
 
-		Blog::create($data);
+		$blog = Blog::create($data);
+		// di ambil dari model blog method tag
+		$blog->tag()->attach(request('tag'));
+
 		$request->session()->flash('pesan', 'Blog Berhasil di Buat');
 		return redirect('/blog');
 
@@ -76,6 +79,8 @@ class BlogController extends Controller
 		$data['kategori_id'] = request('kategori');
 
 		$blog->update($data);
+		$blog->tag()->sync(request('tag')); # tag akan ikut terhapus di database table blog_tag
+
 		session()->flash('pesan', 'Blog Berhasil di Update');
 		return redirect('/blog');
 	}
