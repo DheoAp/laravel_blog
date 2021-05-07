@@ -7,8 +7,8 @@
     <div class="navbar-nav">
       <a class="nav-link{{ request()->is('/') ? ' active' : '' }}" href="{{ url('/') }}">Home</a>
       <a class="nav-link{{ request()->is('blog') ? ' active' : '' }}" href="{{ url('blog') }}">Blog</a>
-      <a class="nav-link" href="/kategori/list">kategori</a>
-      <a class="nav-link" href="/tag">Tag</a>
+      <a class="nav-link{{ request()->is('kategori/list') ? ' active' : '' }}" href="{{ url('/kategori/list') }}">kategori</a>
+      <a class="nav-link{{ request()->is('tag') ? ' active' : '' }}" href="/tag">Tag</a>
       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Laravel 8</a>
     </div>
   </div>
