@@ -14,7 +14,9 @@ class AddKategoriIdToBlogTable extends Migration
 	public function up()
 	{
 		Schema::table('blog', function (Blueprint $table) {
-			$table->foreignId('kategori_id')->nullable()
+			$table->foreignId('kategori_id')
+											->onUpdate('cascade')
+											->onDelete('cascade')
 											->after('judul');
 		});
 	}
