@@ -4,7 +4,7 @@
   <form method="post" action="{{ url('/kategori/edit/'.$kategori->slug) }}">
     @csrf
     @method('patch')
-    @include('blog.kategori.form_controll')
+    @include('blog.kategori.form_control')
   </form>
 </div>
 @endsection
